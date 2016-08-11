@@ -7,8 +7,7 @@ var gulp = require('gulp'),
   changed = require('gulp-changed'),
   gutil = require('gulp-util'),
   browserify = require('browserify'),
-  browserSync = require('browser-sync'),
-  reload = browserSync.reload
+  browserSync = require('browser-sync')
 
 gulp.task('serve', () => {
   browserSync({
@@ -19,9 +18,9 @@ gulp.task('serve', () => {
 })
 
 gulp.task('watch', ['jade', 'sass', 'js'], ()=>{
-  gulp.watch('./src/*.jade', ['jade'])
+  gulp.watch('./src/*.jade', ['jade'], browserSync.reload)
   gulp.watch('./src/sass/**/*.scss', ['sass'])
-  gulp.watch('./src/js/**/*.js', ['js'])
+  gulp.watch('./src/js/**/*.js', ['js'], browserSync.reload)
 })
 
 gulp.task('jade', () => {
@@ -29,7 +28,6 @@ gulp.task('jade', () => {
     .pipe(changed('./production/'))
     .pipe(jade({ pretty: true }))
     .pipe(gulp.dest('./production/'))
-    .pipe(reload({ stream: true }))
 })
 
 gulp.task('sass', () => {
@@ -37,7 +35,7 @@ gulp.task('sass', () => {
     .pipe(changed('./production/css/'))
     .pipe(sass().on('error', gutil.log))
     .pipe(gulp.dest('./production/css/'))
-    .pipe(reload({ stream: true }))
+    .pipe(browserSync.stream())
 })
 
 gulp.task('js', () => {
@@ -53,6 +51,6 @@ gulp.task('js', () => {
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify())
     .on('error', gutil.log)
-    .pipe(sourcemaps.write('./production/js/'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./production/js/'))
 })
