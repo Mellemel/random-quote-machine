@@ -1,0 +1,19 @@
+@import 'node_modules/normalize.scss/normalize.scss';
+
+body {
+  width: 100%;
+  background-color: black;
+}
+
+.main {
+  width: 500px;
+  margin: auto;
+  background-color: #5862f0;
+  text-align: center;
+}
+
+button {
+  color: #c9c9c9;
+  background-color: #67c3f4;
+}
+
