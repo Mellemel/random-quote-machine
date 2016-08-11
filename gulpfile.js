@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 gulp.task('serve', () => {
   browserSync({
     server: {
-      baseDir: './production'
+      baseDir: './public'
     }
   })
 })
@@ -25,16 +25,16 @@ gulp.task('watch', ['jade', 'sass', 'js'], ()=>{
 
 gulp.task('jade', () => {
   return gulp.src('./src/*.jade')
-    .pipe(changed('./production/'))
+    .pipe(changed('./public/'))
     .pipe(jade({ pretty: true }))
-    .pipe(gulp.dest('./production/'))
+    .pipe(gulp.dest('./public/'))
 })
 
 gulp.task('sass', () => {
   return gulp.src('./src/sass/**/*.scss')
-    .pipe(changed('./production/css/'))
+    .pipe(changed('./public/css/'))
     .pipe(sass().on('error', gutil.log))
-    .pipe(gulp.dest('./production/css/'))
+    .pipe(gulp.dest('./public/css/'))
     .pipe(browserSync.stream())
 })
 
@@ -46,11 +46,11 @@ gulp.task('js', () => {
 
   return b.bundle()
     .pipe(gulp.src('./src/js/**/*.js'))
-    .pipe(changed('./production/js/'))
+    .pipe(changed('./public/js/'))
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify())
     .on('error', gutil.log)
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./production/js/'))
+    .pipe(gulp.dest('./public/js/'))
 })
