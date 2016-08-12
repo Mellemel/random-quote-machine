@@ -1,20 +1,41 @@
 @import 'node_modules/normalize.scss/normalize.scss';
 
+$font-color: #990033;
+$div-color: #CCCCCC;
+$body-color: #FFFFFF;
+
+
+
+
 body {
   width: 100%;
-  background-color: black;
+  background-color: $body-color;
 }
 
 .main {
   width: 500px;
   margin: auto;
-  background-color: #5862f0;
+  border: 5px solid $div-color;
+  color: $font-color;
   text-align: center;
 }
 
+h2 {
+  font-size: 1.7em;
+  padding-top: 15px;
+}
+
+.quote{
+  height: 35px;
+}
+
 button {
-  color: #c9c9c9;
-  background-color: #67c3f4;
-  border-radius: 15px;
+  color: #FFFFFF;
+  background-color: $font-color;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 10px 15px;
+  font-weight: 700;
 }
 
