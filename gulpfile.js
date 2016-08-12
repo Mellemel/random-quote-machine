@@ -7,21 +7,22 @@ var gulp = require('gulp'),
   changed = require('gulp-changed'),
   gutil = require('gulp-util'),
   browserify = require('browserify'),
-  browserSync = require('browser-sync')
+  browserSync = require('browser-sync').create()
 
 gulp.task('serve', () => {
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: './public'
     },
+    files: ['public/**/**.*'],
     open: false
   })
 })
 
 gulp.task('watch', ['jade', 'sass', 'js'], ()=>{
-  gulp.watch('./src/*.jade', ['jade'], browserSync.reload)
+  gulp.watch('./src/*.jade', ['jade'])
   gulp.watch('./src/sass/**/*.scss', ['sass'])
-  gulp.watch('./src/js/**/*.js', ['js'], browserSync.reload)
+  gulp.watch('./src/js/**/*.js', ['js'])
 })
 
 gulp.task('jade', () => {
@@ -36,7 +37,6 @@ gulp.task('sass', () => {
     .pipe(changed('./public/css/'))
     .pipe(sass().on('error', gutil.log))
     .pipe(gulp.dest('./public/css/'))
-    .pipe(browserSync.stream())
 })
 
 gulp.task('js', () => {
