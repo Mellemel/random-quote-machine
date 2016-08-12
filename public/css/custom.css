@@ -358,12 +358,14 @@ th {
 
 body {
   width: 100%;
-  background-color: #FFFFFF; }
+  background-color: #FFFFFF;
+  font-family: 'Times New Roman', Times, serif; }
 
 .main {
   width: 500px;
   margin: auto;
   border: 5px solid #CCCCCC;
+  border-radius: 2px;
   color: #990033;
   text-align: center; }
 
@@ -377,8 +379,8 @@ h2 {
 button {
   color: #FFFFFF;
   background-color: #990033;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
   margin: 15px;
   padding: 10px 15px;
   font-weight: 700; }
