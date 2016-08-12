@@ -169,7 +169,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -298,8 +297,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -356,31 +353,31 @@ td,
 th {
   padding: 0; }
 
-body {
-  width: 100%;
-  background-color: #FFFFFF;
-  font-family: 'Times New Roman', Times, serif; }
+@font-face {
+  font-family: 'LilyScriptOne';
+  src: url("../fonts/LilyScriptOne-Regular.ttf") format("truetype"); }
 
 .main {
-  width: 500px;
-  margin: auto;
-  border: 5px solid #CCCCCC;
-  border-radius: 2px;
+  margin: 75px auto;
+  width: 700px;
   color: #990033;
   text-align: center; }
 
-h2 {
-  font-size: 1.7em;
-  padding-top: 15px; }
-
-.quote {
-  height: 35px; }
+h1 {
+  font-family: 'LilyScriptOne' !important;
+  font-size: 3.2em; }
 
 button {
   color: #FFFFFF;
   background-color: #990033;
-  border: 1px solid #CCCCCC;
   border-radius: 2px;
+  border: 3px solid #FFFFFF;
   margin: 15px;
   padding: 10px 15px;
   font-weight: 700; }
+
+button:hover {
+  border: 3px solid #B9B9B9; }
+
+.secondary {
+  background-color: #4099FF; }

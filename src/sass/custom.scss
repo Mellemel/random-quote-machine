@@ -1,43 +1,40 @@
 @import 'node_modules/normalize.scss/normalize.scss';
 
 $font-color: #990033;
-$div-color: #CCCCCC;
+$div-color: #B9B9B9;
 $body-color: #FFFFFF;
 
-
-
-
-body {
-  width: 100%;
-  background-color: $body-color;
-  font-family: 'Times New Roman', Times, serif;
+@font-face {
+  font-family: 'LilyScriptOne';
+  src: url('../fonts/LilyScriptOne-Regular.ttf') format('truetype');
 }
 
 .main {
-  width: 500px;
-  margin: auto;
-  border: 5px solid $div-color;
-  border-radius: 2px;
+  margin: 75px auto;
+  width: 700px;
   color: $font-color;
   text-align: center;
 }
 
-h2 {
-  font-size: 1.7em;
-  padding-top: 15px;
-}
-
-.quote{
-  height: 35px;
+h1 {
+  font-family: 'LilyScriptOne' !important;
+  font-size: 3.2em;
 }
 
 button {
-  color: #FFFFFF;
+  color: $body-color;
   background-color: $font-color;
-  border: 1px solid $div-color;
   border-radius: 2px;
+  border: 3px solid $body-color;
   margin: 15px;
   padding: 10px 15px;
   font-weight: 700;
 }
 
+button:hover {
+  border: 3px solid $div-color;
+}
+
+.secondary {
+  background-color: #4099FF;
+}
