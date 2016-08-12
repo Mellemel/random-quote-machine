@@ -6,6 +6,7 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   changed = require('gulp-changed'),
   gutil = require('gulp-util'),
+  autoPrefix = require('gulp-autoprefixer'),
   browserify = require('browserify'),
   browserSync = require('browser-sync').create()
 
@@ -36,6 +37,7 @@ gulp.task('sass', () => {
   return gulp.src('./src/sass/**/*.scss')
     .pipe(changed('./public/css/'))
     .pipe(sass().on('error', gutil.log))
+    .pipe(autoPrefix())
     .pipe(gulp.dest('./public/css/'))
 })
 
