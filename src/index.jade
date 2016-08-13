@@ -9,13 +9,15 @@ html(lang='en')
     title Random Quote Generator
 
     link(rel='stylesheet', href='/css/custom.css')
-    script(src='/js/app.js')
 
   body
     .main
       h1 Random Quote Generator
-      .quote
-        h3 "My name is not pronounced 'Phillip', It's Phillipé. It's French mother fucker" 
-        p - Phillipé
+      div
+        span.quote
+      div
+        span.author
       button.primary(type='button') New Quote
       button.secondary(type='button') Tweet Quote
+
+  script(src='/js/app.js')

@@ -16,10 +16,21 @@ $body-color: #FFFFFF;
   text-align: center;
 }
 
+.main div {
+  margin-bottom: 25px;
+}
+
 h1 {
   font-family: 'LilyScriptOne' !important;
   font-size: 3.2em;
 }
+
+
+span {
+  font-size: 2em;
+  font-weight: 700;
+}
+
 
 button {
   color: $body-color;
@@ -37,4 +48,26 @@ button:hover {
 
 .secondary {
   background-color: #4099FF;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 1s infinite;
+    -moz-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
