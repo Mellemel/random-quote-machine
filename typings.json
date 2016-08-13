@@ -3,6 +3,7 @@
     "bootstrap": "registry:dt/bootstrap#3.3.5+20160619023404",
     "browserify": "registry:dt/browserify#12.0.1+20160317120654",
     "gulp": "registry:dt/gulp#3.8.0+20160724062653",
+    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
     "node": "registry:dt/node#6.0.0+20160807145350"
   }
 }
