@@ -3,6 +3,8 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   babel = require('gulp-babel'),
   uglify = require('gulp-uglify'),
+  source = require('vinyl-source-stream'),
+  buffer = require('vinyl-buffer'),
   sourcemaps = require('gulp-sourcemaps'),
   changed = require('gulp-changed'),
   gutil = require('gulp-util'),
@@ -48,12 +50,12 @@ gulp.task('js', () => {
   })
 
   return b.bundle()
-    .pipe(gulp.src('./src/js/**/*.js'))
-    .pipe(changed('./public/js/'))
+    .pipe(source('app.js'))
+    .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify())
     .on('error', gutil.log)
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./public/js/'))
 })
