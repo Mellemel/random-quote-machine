@@ -47,7 +47,11 @@ button:focus {
 }
 
 .primary:hover {
-  background-color: #99224A;
+  background-color: #993758;
+}
+
+.primary:active {
+  background-color: #730026;
 }
 
 .secondary {
@@ -55,7 +59,11 @@ button:focus {
 }
 
 .secondary:hover {
-  background-color: #63ACFF;
+  background-color: #7DBAFF;
+}
+
+.secondary:active {
+  background-color: #1B85FF;
 }
 
 .typed-cursor{
