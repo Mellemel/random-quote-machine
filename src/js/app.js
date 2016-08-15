@@ -1,8 +1,11 @@
 global.jQuery = require('jquery')
 require('./typed.js')
 
+var quote = '', author = ''
+
 jQuery(document).ready(() => {
   jQuery.ajaxSetup({ cache: false })
+
   getQuote(writeQuote)
 
   jQuery('.primary').click(() => {
@@ -10,28 +13,37 @@ jQuery(document).ready(() => {
     jQuery('.quote, .author').empty()
     getQuote(writeQuote)
   })
+
+  jQuery('.secondary').click(() => {
+    let options = {
+      url: 'https://twitter.com/intent/tweet?text=',
+      quote: quote,
+      author: author
+    }
+    window.open(options.url + options.quote + '- ' + options.author, '', 'width=550px, height=420px')
+  })
 })
 
 function getQuote(cb) {
-  var url = 'https://crossorigin.me/http://api.forismatic.com/api/1.0/'
+  let url = 'https://crossorigin.me/http://api.forismatic.com/api/1.0/'
 
-  var options = {
+  let options = {
     method: 'getQuote',
     format: 'json',
     lang: 'en'
   }
 
-  jQuery.getJSON(url, options, (data)=>{
+  jQuery.getJSON(url, options, (data) => {
     cb(data)
   })
 }
 
 function writeQuote(data) {
-  var quote = data.quoteText, author = data.quoteAuthor || 'Anonymous'
+  quote = data.quoteText, author = data.quoteAuthor || 'Anonymous'
 
   let typedOptions = {
-    strings: ['"'+quote+'"'],
-    typeSpeed: 50,
+    strings: ['"' + quote + '"'],
+    typeSpeed: 15,
     contentType: 'text',
     callback: () => {
       typedOptions.strings = ['- ' + author]

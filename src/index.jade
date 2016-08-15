@@ -9,7 +9,8 @@ html(lang='en')
     title Random Quote Generator
 
     link(rel='stylesheet', href='/css/custom.css')
-
+    script(type="text/javascript", async, src="https://platform.twitter.com/widgets.js")
+    script(src='/js/app.js')
   body
     .main
       h1 Random Quote Generator
@@ -19,5 +20,4 @@ html(lang='en')
         span.author
       button.primary(type='button') New Quote
       button.secondary(type='button') Tweet Quote
-
-  script(src='/js/app.js')
+      
