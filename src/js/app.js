@@ -33,8 +33,11 @@ function getQuote(cb) {
     lang: 'en'
   }
 
+  // recursively get quotes until there is a one that fits twitter's specifications
   jQuery.getJSON(url, options, (data) => {
-    cb(data)
+    let tweet = data.quoteText + '- ' + data.quoteAuthor
+    if (tweet.length > 140) return getQuote(cb)
+    else cb(data)
   })
 }
 
@@ -43,10 +46,10 @@ function writeQuote(data) {
 
   let typedOptions = {
     strings: ['"' + quote + '"'],
-    typeSpeed: 15,
+    typeSpeed: 0,
     contentType: 'text',
     callback: () => {
-      typedOptions.strings = ['- ' + author]
+      typedOptions.strings = [author]
       jQuery('.typed-cursor').remove()
       delete typedOptions.callback
       jQuery('.author').typed(typedOptions)
