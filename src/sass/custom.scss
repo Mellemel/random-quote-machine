@@ -1,4 +1,5 @@
 @import 'node_modules/normalize.scss/normalize.scss';
+@import 'font-awesome.scss';
 
 $font-color: #990033;
 $div-color: #B9B9B9;
@@ -31,23 +32,30 @@ span {
   font-weight: 700;
 }
 
-
 button {
   color: $body-color;
   background-color: $font-color;
   border-radius: 2px;
-  border: 3px solid $body-color;
+  border: none;
   margin: 15px;
-  padding: 10px 15px;
+  padding: 10px 30px;
   font-weight: 700;
 }
 
-button:hover {
-  border: 3px solid $div-color;
+button:focus {
+  outline: none;
+}
+
+.primary:hover {
+  background-color: #99224A;
 }
 
 .secondary {
   background-color: #4099FF;
+}
+
+.secondary:hover {
+  background-color: #63ACFF;
 }
 
 .typed-cursor{
