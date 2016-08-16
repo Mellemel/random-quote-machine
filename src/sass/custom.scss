@@ -17,13 +17,19 @@ $body-color: #FFFFFF;
   text-align: center;
 }
 
-.main div {
-  margin-bottom: 25px;
+div:nth-child(2) {
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+div:nth-child(3) {
+  height: 40px;
 }
 
 h1 {
   font-family: 'LilyScriptOne' !important;
   font-size: 3.2em;
+  margin-bottom: 15px;
 }
 
 
