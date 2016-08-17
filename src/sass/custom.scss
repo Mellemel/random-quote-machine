@@ -1,37 +1,45 @@
 @import 'node_modules/normalize.scss/normalize.scss';
 @import 'font-awesome.scss';
 
-$font-color: #990033;
-$div-color: #B9B9B9;
-$body-color: #FFFFFF;
-
 @font-face {
   font-family: 'LilyScriptOne';
   src: url('../fonts/LilyScriptOne-Regular.ttf') format('truetype');
 }
 
-.main {
-  margin: 75px auto;
-  width: 700px;
-  color: $font-color;
+$font-color: #990033;
+$div-color: #B9B9B9;
+$body-color: #FFFFFF;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
   text-align: center;
+  color: $font-color;
+  min-width: 400px;
 }
 
-div:nth-child(2) {
-  height: 120px;
-  margin-bottom: 10px;
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
-div:nth-child(3) {
-  height: 40px;
+[class*="col-"] {
+  float: left;
+  padding: 10px;
 }
 
 h1 {
   font-family: 'LilyScriptOne' !important;
   font-size: 3.2em;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
+#generate {
+  min-height: 190px;
+}
 
 span {
   font-size: 2em;
@@ -39,17 +47,18 @@ span {
 }
 
 button {
-  color: $body-color;
-  background-color: $font-color;
   border-radius: 2px;
   border: none;
   margin: 15px;
   padding: 10px 30px;
-  font-weight: 700;
 }
 
 button:focus {
   outline: none;
+}
+
+.primary {
+  background-color: $font-color;
 }
 
 .primary:hover {
@@ -72,24 +81,58 @@ button:focus {
   background-color: #1B85FF;
 }
 
+/* For mobile phones */
+[class*="col-"] {
+  width: 100%;
+}
+
+/* For tablets and bigger */
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+  .col-offset-1 {margin-left: 8.33%;}
+  .col-offset-2 {margin-left: 16.66%;}
+  .col-offset-3 {margin-left: 25%;}
+  .col-offset-4 {margin-left: 33.33%;}
+  .col-offset-5 {margin-left: 41.66%;}
+  .col-offset-6 {margin-left: 50%;}
+  .col-offset-7 {margin-left: 58.33%;}
+  .col-offset-8 {margin-left: 66.66%;}
+  .col-offset-9 {margin-left: 75%;}
+  .col-offset-10 {margin-left: 83.33%;}
+  .col-offset-11 {margin-left: 91.66%;}
+  .col-offset-12 {margin-left: 100%;}
+}
+
+/* typing animation */
 .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 1s infinite;
-    -moz-animation: blink 1s infinite;
-    animation: blink 1s infinite;
+  opacity: 1;
+  -webkit-animation: blink 1s infinite;
+  -moz-animation: blink 1s infinite;
+  animation: blink 1s infinite;
 }
 @keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
 }
 @-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
 }
 @-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
 }
