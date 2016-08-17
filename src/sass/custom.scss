@@ -7,7 +7,6 @@
 }
 
 $font-color: #990033;
-$div-color: #B9B9B9;
 $body-color: #FFFFFF;
 
 * {
@@ -37,8 +36,12 @@ h1 {
   margin-bottom: 0px;
 }
 
-#generate {
+#text {
   min-height: 190px;
+}
+
+#text .row {
+  display: none;
 }
 
 span {
@@ -114,7 +117,24 @@ button:focus {
   .col-offset-12 {margin-left: 100%;}
 }
 
-/* typing animation */
+/* Loading symbol */
+
+#loader {
+  border: 16px solid #D2D2D2;
+  border-top: 16px solid $font-color;
+  border-radius: 50%;
+  margin: auto;
+  width: 160px;
+  height: 160px;
+  animation: spin 1.25s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Typing animation */
 .typed-cursor{
   opacity: 1;
   -webkit-animation: blink 1s infinite;

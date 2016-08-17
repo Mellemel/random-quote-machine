@@ -2567,8 +2567,11 @@ h1 {
   font-size: 3.2em;
   margin-bottom: 0px; }
 
-#generate {
+#text {
   min-height: 190px; }
+
+#text .row {
+  display: none; }
 
 span {
   font-size: 2em;
@@ -2656,7 +2659,34 @@ button:focus {
   .col-offset-12 {
     margin-left: 100%; } }
 
-/* typing animation */
+/* Loading symbol */
+#loader {
+  border: 16px solid #D2D2D2;
+  border-top: 16px solid #990033;
+  border-radius: 50%;
+  margin: auto;
+  width: 160px;
+  height: 160px;
+  -webkit-animation: spin 1.25s linear infinite;
+          animation: spin 1.25s linear infinite; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+/* Typing animation */
 .typed-cursor {
   opacity: 1;
   -webkit-animation: blink 1s infinite;

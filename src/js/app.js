@@ -33,11 +33,18 @@ function getQuote(cb) {
     lang: 'en'
   }
 
+  displayText(false)
+
   // recursively get quotes until there is a one that fits twitter's specifications
   jQuery.getJSON(url, options, (data) => {
     let tweet = data.quoteText + '- ' + data.quoteAuthor
-    if (tweet.length > 140) return getQuote(cb)
-    else cb(data)
+
+    if (tweet.length > 140) {
+      return getQuote(cb)
+    } else {
+      displayText(true)
+      cb(data)
+    }
   })
 }
 
@@ -56,4 +63,14 @@ function writeQuote(data) {
     }
   }
   jQuery('.quote').typed(typedOptions)
+}
+
+function displayText(bool) {
+  if (bool) {
+    jQuery('#loader').hide()
+    jQuery('#text .row').show()
+  } else {
+    jQuery('#loader').show()
+    jQuery('#text .row').hide()
+  }
 }
