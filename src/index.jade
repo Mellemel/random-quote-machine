@@ -9,20 +9,25 @@ html(lang='en')
     title Random Quote Generator
 
     link(rel='icon', href='./favicon.ico' type='image/x-icon')
+    link(rel="stylesheet", src='https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css')
     link(rel='stylesheet', href='./css/custom.css')
-    script(type="text/javascript", async, src="https://platform.twitter.com/widgets.js")
+
+    script(src="https://use.fontawesome.com/8372aa98d1.js")
+    script(src="https://code.jquery.com/jquery-3.1.0.min.js",   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=", crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js")
+    script(src="https://platform.twitter.com/widgets.js")
     script(src='./js/app.js')
   body
     .row
-      h1.col-8.col-offset-2 Random Quote Generator
+      h1.col-8.col-offset-2.col-lg-6.col-lg-offset-3 Random Quote Generator
     .row
       #text
         #loader
         .row
-          .col-8.col-offset-2
+          .col-8.col-offset-2.col-lg-6.col-lg-offset-3
             span.quote
         .row
-          .col-8.col-offset-2
+          .col-8.col-offset-2.col-lg-6.col-lg-offset-3
             span.author
     .row
       .col-8.col-offset-2

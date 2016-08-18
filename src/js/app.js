@@ -1,20 +1,17 @@
-global.jQuery = require('jquery')
-require('./typed.js')
-
 var quote = '', author = ''
 
-jQuery(document).ready(() => {
-  jQuery.ajaxSetup({ cache: false })
+$(document).ready(() => {
+  $.ajaxSetup({ cache: false })
 
   getQuote(writeQuote)
 
-  jQuery('.primary').click(() => {
-    jQuery('.typed-cursor').remove()
-    jQuery('.quote, .author').empty()
+  $('.primary').click(() => {
+    $('.typed-cursor').remove()
+    $('.quote, .author').empty()
     getQuote(writeQuote)
   })
 
-  jQuery('.secondary').click(() => {
+  $('.secondary').click(() => {
     let options = {
       url: 'https://twitter.com/intent/tweet?text=',
       quote: quote,
@@ -36,7 +33,7 @@ function getQuote(cb) {
   displayText(false)
 
   // recursively get quotes until there is a one that fits twitter's specifications
-  jQuery.getJSON(url, options, (data) => {
+  $.getJSON(url, options, (data) => {
     let tweet = data.quoteText + '- ' + data.quoteAuthor
 
     if (tweet.length > 140) {
@@ -57,20 +54,20 @@ function writeQuote(data) {
     contentType: 'text',
     callback: () => {
       typedOptions.strings = [author]
-      jQuery('.typed-cursor').remove()
+      $('.typed-cursor').remove()
       delete typedOptions.callback
-      jQuery('.author').typed(typedOptions)
+      $('.author').typed(typedOptions)
     }
   }
-  jQuery('.quote').typed(typedOptions)
+  $('.quote').typed(typedOptions)
 }
 
 function displayText(bool) {
   if (bool) {
-    jQuery('#loader').hide()
-    jQuery('#text .row').show()
+    $('#loader').hide()
+    $('#text .row').show()
   } else {
-    jQuery('#loader').show()
-    jQuery('#text .row').hide()
+    $('#loader').show()
+    $('#text .row').hide()
   }
 }
