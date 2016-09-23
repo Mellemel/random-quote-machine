@@ -22,25 +22,22 @@ $(document).ready(() => {
 })
 
 function getQuote(cb) {
-  let url = 'https://crossorigin.me/http://api.forismatic.com/api/1.0/'
-
-  let options = {
-    method: 'getQuote',
-    format: 'json',
-    lang: 'en'
-  }
-
   displayText(false)
 
   // recursively get quotes until there is a one that fits twitter's specifications
-  $.getJSON(url, options, (data) => {
-    let tweet = data.quoteText + '- ' + data.quoteAuthor
+  $.ajax({
+    url: 'http://api.forismatic.com/api/1.0/',
+    jsonp: 'method=getQuote&lang=en&format=jsonp&jsonp',
+    dataType: 'jsonp',
+    success: (data) => {
+      let tweet = data.quoteText + '- ' + data.quoteAuthor
 
-    if (tweet.length > 140) {
-      return getQuote(cb)
-    } else {
-      displayText(true)
-      cb(data)
+      if (tweet.length > 140) {
+        return getQuote(cb)
+      } else {
+        displayText(true)
+        cb(data)
+      }
     }
   })
 }
