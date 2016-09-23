@@ -8,7 +8,11 @@
 body {
   text-align: center;
   color: #990033;
-  min-width: 400px; }
+  margin: 0; }
+
+i {
+  font-size: 1.75em;
+  color: white; }
 
 .row::after {
   content: "";

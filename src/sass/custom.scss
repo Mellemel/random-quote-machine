@@ -13,7 +13,12 @@ $body-color: #FFFFFF;
 body {
   text-align: center;
   color: $font-color;
-  min-width: 400px;
+  margin: 0;
+}
+
+i {
+  font-size: 1.75em;
+  color: white;
 }
 
 .row::after {
