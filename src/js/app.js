@@ -1,8 +1,6 @@
 var quote = '', author = ''
 
 $(document).ready(() => {
-  $.ajaxSetup({ cache: false })
-
   getQuote(writeQuote)
 
   $('.primary').click(() => {
@@ -25,19 +23,15 @@ function getQuote(cb) {
   displayText(false)
 
   // recursively get quotes until there is a one that fits twitter's specifications
-  $.ajax({
-    url: 'http://api.forismatic.com/api/1.0/',
-    jsonp: 'method=getQuote&lang=en&format=jsonp&jsonp',
-    dataType: 'jsonp',
-    success: (data) => {
-      let tweet = data.quoteText + '- ' + data.quoteAuthor
+  $.get('/api/randomquote', (data) => {
+    data = JSON.parse(data)
+    let tweet = data.quoteText + '- ' + data.quoteAuthor
 
-      if (tweet.length > 140) {
-        return getQuote(cb)
-      } else {
-        displayText(true)
-        cb(data)
-      }
+    if (tweet.length > 140) {
+      return getQuote(cb)
+    } else {
+      displayText(true)
+      cb(data)
     }
   })
 }
